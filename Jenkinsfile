@@ -1,4 +1,4 @@
-pipeline {
+ppipeline {
     agent any
     tools{
         maven 'M2_HOME'
@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout'){
             steps{
-                git branch: 'main', url: 'https://github.com/Caroline-El/helloworld_jan_22.git'
+                git branch: 'main', url: 'https://github.com/utrains/helloworld_pipeline.git'
             }
         }
         stage('Code Build') {
@@ -35,6 +35,13 @@ pipeline {
             steps{
                 script{ 
                     docker.withRegistry("https://"+registry,"ecr:us-east-1:"+registryCredential) {
+                        dockerImage.push()
+                    }
+                }
+            }
+        }  
+    }
+}"https://"+registry,"ecr:us-east-1:"+registryCredential) {
                         dockerImage.push()
                     }
                 }
