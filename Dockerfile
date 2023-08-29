@@ -1,4 +1,6 @@
-FROM openjdk:11.0.7
-ADD target/fastfood-0.0.1-SNAPSHOT.jar fastfood-0.0.1-SNAPSHOT.jar
-EXPOSE 80
-ENTRYPOINT ["java","-jar","fastfood-0.0.1-SNAPSHOT.jar"]
+# Pull base image 
+From tomcat:8-jre8 
+
+# Maintainer 
+MAINTAINER "kserge2001@yahoo.fr" 
+#COPY ./webapp.war /usr/local/tomcat/webapps
